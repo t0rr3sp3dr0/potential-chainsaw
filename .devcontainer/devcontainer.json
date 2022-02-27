@@ -1,0 +1,11 @@
+{
+	"name": "Ubuntu",
+	"image": "mcr.microsoft.com/vscode/devcontainers/base",
+
+	"features": {
+		"github-cli": "latest",
+		"codspaces/myfeatures/helloworld": {
+			"greeting": "Hey there"
+		}
+	}
+}
