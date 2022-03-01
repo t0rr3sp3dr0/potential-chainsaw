@@ -4,7 +4,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          curl -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' -i 'https://api.github.com/codespaces_internal/prebuilds/repository/inloco/actions-playground/agent/download?vscs_location=EastUs&workflow_run_id=${{ github.run_id }}&vscs_target=production&vscs_target_url='
+          curl -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' -i 'https://api.github.com/codespaces_internal/prebuilds/repository/${{ github.repository }}/agent/download?vscs_location=EastUs&workflow_run_id=${{ github.run_id }}&vscs_target=production&vscs_target_url='
 #   createPrebuild:
 #     runs-on: ubuntu-latest
 #     steps:
