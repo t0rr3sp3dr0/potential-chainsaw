@@ -1,15 +1,20 @@
 on: workflow_dispatch
 jobs:
-  createPrebuild:
+  agent:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: github/codespaces-precache@v1.0.1
-        with:
-          regions: EastUs
-          sku_name: standardLinux32gb
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
+          curl -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' -i 'https://api.github.com/codespaces_internal/prebuilds/repository/inloco/actions-playground/agent/download?vscs_location=EastUs&workflow_run_id=${{ github.run_id }}&vscs_target=production&vscs_target_url='
+#   createPrebuild:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#       - uses: github/codespaces-precache@v1.0.1
+#         with:
+#           regions: EastUs
+#           sku_name: standardLinux32gb
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #   all:
 #     runs-on: ubuntu-latest
 #     steps:
